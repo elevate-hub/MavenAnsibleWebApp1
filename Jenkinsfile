@@ -1,5 +1,5 @@
 pipeline {
-    agent any // Use any available agent
+    agent any
 
     environment {
         LANG   = 'en_US.UTF-8'
@@ -7,14 +7,15 @@ pipeline {
     }
 
     tools {
-        maven 'Maven' // Ensure this matches the name configured in Jenkins
+        maven 'Maven'
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/elevate-hub/MavenAnsibleWebApp1.git'
+                git branch: 'main',
+                    url: 'https://github.com/elevate-hub/MavenAnsibleWebApp1.git'
             }
         }
 
@@ -32,7 +33,6 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'mvn clean package'
                 sh 'ansible-playbook ansible/playbook.yml -i ansible/hosts.ini'
             }
         }
