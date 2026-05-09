@@ -10,7 +10,8 @@
         dest: "/opt/tomcat/webapps/MavenAnsibleWebApp1.war"
         remote_src: no
 
-    - name: Restart Tomcat
-      systemd:
-        name: tomcat9
-        state: restarted
+    - name: Stop Tomcat
+      shell: /opt/tomcat/bin/shutdown.sh
+
+    - name: Start Tomcat
+      shell: /opt/tomcat/bin/startup.sh
