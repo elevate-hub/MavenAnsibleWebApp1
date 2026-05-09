@@ -30,7 +30,7 @@
 <!--  Update to latest stable version  -->
 </plugin>
 </plugins>
-<finalName>MavenAnsibleWebApp</finalName>
+<finalName>MavenAnsibleWebApp1</finalName>
 <!--  create a web page with the name MavenAnsibleWebApp, if we want some other name we can chage it  -->
 </build>
 </project>
