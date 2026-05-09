@@ -14,7 +14,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/elevate-hub/MavenAnsibleWebApp1.git'
+                git url: 'https://github.com/ShruthiBGowda/MavenAnsibleWebApp.git'
             }
         }
 
@@ -32,8 +32,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploy stage started'
-                // Add deployment commands here
+                sh 'mvn clean package'
+                sh 'ansible-playbook ansible/playbook.yml -i ansible/hosts.ini'
             }
         }
     }
